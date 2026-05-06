@@ -200,3 +200,19 @@ body { background: var(--bg); color: var(--text); font-family: 'Montserrat', san
 .btn-small:hover {
     background: #8bc34a;
 }
+/* Этот код сработает только для экранов меньше 768 пикселей (телефоны и планшеты) */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Растягиваем контент почти на весь экран */
+    }
+
+    /* Если у вас была сетка или флекс-боксы, меняем направление на вертикальное */
+    .ваша-сетка-с-карточками {
+        flex-direction: column; 
+    }
+
+    img {
+        max-width: 100%; /* Чтобы картинки не вылезали за края */
+        height: auto;
+    }
+}
