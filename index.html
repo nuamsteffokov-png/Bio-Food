@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioFood — Система здорового питания</title>
+    <link rel="icon" href="img/favicon.ico.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="stylelk.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+ <header class="header">
+        <div class="container header__container">
+         <div class="logo">
+                <img src="img/logotip.jpg" alt="Логотип" class="logo__icon">
+                Bio<span>Food</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="#home" class="nav__link">Главная</a></li>
+                    <li><a href="#menu" class="nav__link">Меню</a></li>
+                    <li><a href="#reviews-section" class="nav__link">Отзывы</a></li>
+                </ul>
+            </nav>
+            <div class="header__controls">
+                <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙</button>
+                <div class="header__cart" onclick="toggleCartModal()">🛒 (<span id="cart-count">0</span>)</div>
+                <div class="header__profile" id="auth-btn" onclick="toggleAuthModal()">👤 Войти</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>BioFood — Элиста</h1>
+                <p>Здоровое питание с доставкой. Контролируй свой рацион правильно.</p>
+                <a href="#menu" class="btn">Перейти к меню</a>
+            </div>
+        </section>
+ 
+<section class="about" id="about">
+            <div class="container">
+                <h2 class="title">О проекте BioFood</h2>
+                <div class="about__grid">
+                    <div class="about__text">
+                        <h3>Мы меняем культуру питания в Элисте</h3>
+                        <p>BioFood — это инновационный проект на стыке гастрономии и диетологии. Мы разработали интерфейс, который помогает пользователю не просто покупать еду, а контролировать свой биологический ресурс.</p>
+                        <p>Наша кухня базируется на принципах <strong>Clean Eating</strong>: отсутствие скрытых сахаров, использование только цельнозерновых продуктов и локальных суперфудов Калмыкии.</p>
+                        <div class="about__stats">
+                            <span><b>500+</b> клиентов</span>
+                            <span><b>100%</b> Эко-продукты</span>
+                        </div>
+                    </div>
+                    <div class="about__img">
+                        <img src="img/about-bg.jpg" alt="Интерьер BioFood">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bmi">
+            <div class="container">
+                <div class="bmi__card">
+                    <h3>Калькулятор ИМТ</h3>
+                    <div class="bmi__inputs">
+                        <input type="number" id="bmi-w" placeholder="Вес (кг)">
+                        <input type="number" id="bmi-h" placeholder="Рост (см)">
+                    </div>
+                    <button class="btn" onclick="calculateBMI()">Узнать результат</button>
+                    <div id="bmi-res" class="bmi-result-text"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="menu">
+            <div class="container">
+                <h2 class="title">Наше Меню</h2>
+                <input type="text" id="search" placeholder="Поиск блюда..." class="search-input">
+                <div class="menu__grid" id="menu-container"></div>
+            </div>
+        </section>
+
+        <section class="reviews-section" id="reviews-section">
+            <div class="container">
+                <h2 class="title">Отзывы покупателей</h2>
+                <div class="reviews__grid" id="reviews-container">
+                    </div>
+                
+                <div class="reviews__form-container">
+                    <div id="review-auth-warning">
+                        <p>Хотите оставить отзыв? Сначала войдите в аккаунт.</p>
+                    </div>
+                    <div id="review-form-block" style="display: none;">
+                        <h3>Ваш отзыв</h3>
+                        <select id="review-rating" class="auth-input">
+                            <option value="5">⭐⭐⭐⭐⭐</option>
+                            <option value="4">⭐⭐⭐⭐</option>
+                        </select>
+                        <textarea id="review-text" class="auth-input" placeholder="Напишите впечатления..."></textarea>
+                        <button class="btn" onclick="submitReview()">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__col">
+                <div class="logo">Bio<span>Food</span></div>
+                <p>Здоровье начинается с тарелки.</p>
+            </div>
+            <div class="footer__col">
+                <h4>Навигация</h4>
+                <a href="#home">Главная</a><br>
+                <a href="#menu">Меню</a>
+            </div>
+                    <div class="footer__col">
+                    <h4>Контакты и соцсети</h4>
+                    <p>📍 г. Элиста, КФ РГУ СоцТех</p>
+                    <p>📞 +7 (847) 000-00-00</p>
+                    <div class="footer__socials" style="margin-top: 15px; display: flex; gap: 15px;">
+                    <a href="https://vk.com" target="_blank" title="ВКонтакте">
+                    <img src="https://img.icons8.com/color/32/vkontakte.png" alt="ВК">
+                    </a>
+                    <a href="https://t.me" target="_blank" title="Telegram">
+                    <img src="https://img.icons8.com/color/32/telegram-app.png" alt="ТГ">
+                    </a>
+                    <a href="https://ok.ru" target="_blank" title="Одноклассники">
+                    <img src="https://img.icons8.com/color/32/odnoklassniki.png" alt="ОК">
+                    </a>
+                    </div>
+</div>
+        </div>
+        <div class="footer__bottom">
+            <p>&copy; 2026 Курсовая работа. Наран. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleCartModal()">&times;</span>
+            <h2>Корзина</h2>
+            <div id="cart-list"></div>
+            <hr>
+            <div class="promo-box">
+                <input type="text" id="promo-code" class="auth-input" placeholder="Промокод">
+                <button class="btn" onclick="applyPromo()">Применить</button>
+            </div>
+            <h3 id="total-price-display">Итого: 0 ₽</h3>
+            <button class="btn btn-order" onclick="processOrder()">Заказать</button>
+        </div>
+    </div>
+
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleAuthModal()">&times;</span>
+            <div id="login-form">
+                <h2>Вход</h2>
+                <input type="text" id="auth-name" class="auth-input" placeholder="Имя">
+                <input type="email" id="auth-email" class="auth-input" placeholder="Email">
+                <input type="password" id="auth-pass" class="auth-input" placeholder="Пароль">
+                <button class="btn btn-order" onclick="handleAuth()">Войти</button>
+            </div>
+                <div id="profile-card" style="display: none;">
+                <div class="profile-header">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-info">
+                        <h2 id="profile-name">Имя Пользователя</h2>
+                        <span class="status-badge">Статус: ЗОЖ-активист</span>
+                    </div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <h4>💧 Гидратация</h4>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="water-progress" style="width: 0%"></div>
+                        </div>
+                        <p><span id="water-count">0</span> из 8 стаканов</p>
+                        <button class="btn-small" onclick="addWater()">Добавить стакан +</button>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <h4>🏆 Достижения</h4>
+                        <p>Заказов: <span id="orders-count">0</span></p>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="btn btn-order" onclick="logout()" style="background:#ff4d4d; margin-top: 20px;">Выйти из системы</button>
+                </div>
+</div>
+        </div>
+    </div>
+
+    <button id="to-top" class="to-top-btn" onclick="scrollToTop()">↑</button>
+
+    <script src="scriptlk.js"></script>
+</body>
+</html>
+
+
